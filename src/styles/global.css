@@ -68,9 +68,36 @@ a {
 }
 
 .backdrop__theme,
-.backdrop__burst {
+.backdrop__burst,
+.backdrop__canvas {
   position: absolute;
   inset: 0;
+}
+
+.backdrop__canvas {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.layer--backdrop[data-renderer='webgl'] .backdrop__canvas {
+  opacity: 1;
+}
+
+.layer--backdrop[data-renderer='webgl'] .backdrop__theme,
+.layer--backdrop[data-renderer='webgl'] .backdrop__burst {
+  visibility: hidden;
+}
+
+.layer--backdrop[data-renderer='webgl'] .backdrop__burst,
+.layer--backdrop[data-running='false'] .backdrop__burst {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .backdrop__burst {
+    display: none;
+  }
 }
 
 .backdrop__theme {
