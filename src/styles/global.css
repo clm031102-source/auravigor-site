@@ -75,13 +75,24 @@ a {
 
 .backdrop__theme {
   opacity: var(--theme-mix);
-  background: radial-gradient(ellipse 78% 88% at 50% 58%, var(--theme-b) 0%, var(--theme-a) 46%, var(--void) 120%);
+  background: radial-gradient(
+    ellipse 78% 88% at 50% 58%,
+    var(--theme-b) 0%,
+    var(--theme-a) 46%,
+    var(--void) 120%
+  );
 }
 
 .backdrop__burst {
   inset: -40%;
   opacity: calc(var(--burst) * 0.85);
-  background: repeating-conic-gradient(from 0deg at 50% 50%, var(--theme-b) 0deg, transparent 9deg, var(--theme-a) 17deg, transparent 26deg);
+  background: repeating-conic-gradient(
+    from 0deg at 50% 50%,
+    var(--theme-b) 0deg,
+    transparent 9deg,
+    var(--theme-a) 17deg,
+    transparent 26deg
+  );
   filter: blur(48px) saturate(1.3);
   mix-blend-mode: screen;
   animation: burst-spin 40s linear infinite;

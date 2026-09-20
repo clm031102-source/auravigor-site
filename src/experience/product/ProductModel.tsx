@@ -55,7 +55,9 @@ function ProceduralPack({ product }: { product: Product }) {
       </mesh>
 
       <mesh position-y={pack.lid.centerY}>
-        <cylinderGeometry args={[pack.lid.radius, pack.lid.radius, pack.lid.height, RADIAL_SEGMENTS]} />
+        <cylinderGeometry
+          args={[pack.lid.radius, pack.lid.radius, pack.lid.height, RADIAL_SEGMENTS]}
+        />
         <meshStandardMaterial color={product.packaging.lidColor} roughness={0.55} />
       </mesh>
     </group>
@@ -70,5 +72,9 @@ function GlbPack({ src }: { src: string }) {
 }
 
 export function ProductModel({ product }: { product: Product }) {
-  return product.modelSrc ? <GlbPack src={product.modelSrc} /> : <ProceduralPack product={product} />;
+  return product.modelSrc ? (
+    <GlbPack src={product.modelSrc} />
+  ) : (
+    <ProceduralPack product={product} />
+  );
 }

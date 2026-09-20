@@ -35,7 +35,10 @@ export function useScrollDirector(stageRef: RefObject<HTMLElement | null>): void
       const themeIn = smoothstep(0.05, 0.6, local.reveal);
       const themeOut = smoothstep(0, 0.4, local.lineup);
       root.style.setProperty('--theme-mix', (themeIn * (1 - themeOut)).toFixed(4));
-      root.style.setProperty('--burst', (smoothstep(0, 0.3, local.slogan) * (1 - themeOut)).toFixed(4));
+      root.style.setProperty(
+        '--burst',
+        (smoothstep(0, 0.3, local.slogan) * (1 - themeOut)).toFixed(4),
+      );
       root.style.setProperty('--progress', scrollState.total.toFixed(4));
 
       const store = useAppStore.getState();

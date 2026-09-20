@@ -59,7 +59,12 @@ function drawPlaceholderLabel(product: Product, aspect: number): HTMLCanvasEleme
   ctx.fillText('SUPPLEMENT FACTS', boxX + w * 0.012, h * 0.2);
   ctx.globalAlpha = 0.55;
   for (let i = 0; i < 9; i += 1) {
-    ctx.fillRect(boxX + w * 0.012, h * (0.29 + i * 0.06), boxW - w * 0.024 - (i % 3) * w * 0.03, h * 0.012);
+    ctx.fillRect(
+      boxX + w * 0.012,
+      h * (0.29 + i * 0.06),
+      boxW - w * 0.024 - (i % 3) * w * 0.03,
+      h * 0.012,
+    );
   }
   ctx.globalAlpha = 1;
 

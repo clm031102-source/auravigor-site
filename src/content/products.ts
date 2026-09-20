@@ -113,7 +113,8 @@ export const products: Product[] = [
     id: 'enzymes',
     name: 'Enzymes',
     category: 'Digestive Enzyme Complex',
-    description: '[Placeholder] A short, sensory line about Digestive Enzymes. Two sentences at most.',
+    description:
+      '[Placeholder] A short, sensory line about Digestive Enzymes. Two sentences at most.',
     theme: { primary: '#0a7d4f', secondary: '#9be15d', ink: '#ffffff' },
     packaging: {
       type: 'bottle',

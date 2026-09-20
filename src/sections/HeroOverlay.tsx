@@ -49,7 +49,8 @@ export function HeroOverlay() {
         }}
         onPointerMove={(event) => {
           if (!drag.current) return;
-          const travelled = (event.clientX - drag.current.startX) / (window.innerWidth * SLOT_TRAVEL);
+          const travelled =
+            (event.clientX - drag.current.startX) / (window.innerWidth * SLOT_TRAVEL);
           ringState.target = drag.current.startTarget - travelled;
         }}
         onPointerUp={endDrag}
@@ -57,7 +58,12 @@ export function HeroOverlay() {
       />
 
       <div className="hero__pedestal">
-        <button type="button" className="hero__arrow" aria-label={site.hero.prev} onClick={() => stepProduct(-1)}>
+        <button
+          type="button"
+          className="hero__arrow"
+          aria-label={site.hero.prev}
+          onClick={() => stepProduct(-1)}
+        >
           ←
         </button>
         <div className="hero__name" aria-live="polite">
@@ -65,7 +71,12 @@ export function HeroOverlay() {
           <span>{product.name}</span>
           <small>{product.category}</small>
         </div>
-        <button type="button" className="hero__arrow" aria-label={site.hero.next} onClick={() => stepProduct(1)}>
+        <button
+          type="button"
+          className="hero__arrow"
+          aria-label={site.hero.next}
+          onClick={() => stepProduct(1)}
+        >
           →
         </button>
       </div>
