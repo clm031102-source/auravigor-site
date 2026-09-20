@@ -37,7 +37,7 @@ item ticked or explained, and update the status table in docs/TASKS.md.
 | A05 | 域名、托管账号、法律主体与法务页面文本 | Alan 团队 | M5 | — | todo |
 | A06 | 音效素材（可选） | Alan 团队 | M3 | — | todo |
 | A07 | 每个 PR 的预览验收 | Alan 团队 | 持续 | T01 | todo |
-| T01 | 工程基建：Lint / 格式化 / CI / 预览部署 | Codex | M1 | — | todo |
+| T01 | 工程基建：Lint / 格式化 / CI / 预览部署 | Codex | M1 | — | review |
 | T02 | 接入真实标签与包装尺寸 | Codex | M1 | A01 A02 | todo |
 | T03 | 接入定稿文案 + 占位内容守卫 | Codex | M1 | A04 | todo |
 | T04 | 字体、Logo 与品牌令牌 | Codex | M1 | A03 | todo |
