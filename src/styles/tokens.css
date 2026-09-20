@@ -41,6 +41,9 @@
   --gutter: clamp(1rem, 4vw, 3.5rem);
   --header-h: 4.5rem;
   --copy-w: min(30rem, 38vw);
+  --picker-radius: 0.8rem;
+  --picker-label-offset: 0.7rem;
+  --picker-focus-width: 2px;
 
   /* layers */
   --z-backdrop: 0;

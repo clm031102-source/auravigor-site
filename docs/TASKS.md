@@ -37,7 +37,7 @@ item ticked or explained, and update the status table in docs/TASKS.md.
 | A05 | 域名、托管账号、法律主体与法务页面文本 | Alan 团队 | M5 | — | todo |
 | A06 | 音效素材（可选） | Alan 团队 | M3 | — | todo |
 | A07 | 每个 PR 的预览验收 | Alan 团队 | 持续 | T01 | todo |
-| T01 | 工程基建：Lint / 格式化 / CI / 预览部署 | Codex | M1 | — | review |
+| T01 | 工程基建：Lint / 格式化 / CI / 预览部署 | Codex | M1 | — | done |
 | T02 | 接入真实标签与包装尺寸 | Codex | M1 | A01 A02 | todo |
 | T03 | 接入定稿文案 + 占位内容守卫 | Codex | M1 | A04 | todo |
 | T04 | 字体、Logo 与品牌令牌 | Codex | M1 | A03 | todo |
@@ -59,6 +59,7 @@ item ticked or explained, and update the status table in docs/TASKS.md.
 | T20 | 法务页面、Cookie 与统计 | Codex | M5 | A05 | todo |
 | T21 | 部署上线 | Codex | M5 | T15 T16 T17 T19 T20 | todo |
 | T22 | （可选）无缝循环回首屏 | Codex | M5+ | T08 | todo |
+| T23 | 首尾产品点击修复（Alan 追加） | Codex | M2 | T01 | review |
 | C04 | （按需）英文文案初稿，交 Alan 团队过合规 | Claude | M1 | — | todo |
 | C05 | （按需）M2 / M4 结束时的架构审查 | Claude | M2 M4 | — | todo |
 | C06 | （按需）逐幕动效调参意见 | Claude | M2 | T05–T10 | todo |
@@ -388,3 +389,17 @@ item ticked or explained, and update the status table in docs/TASKS.md.
 - **验收**：
   - [ ] 连续循环 3 圈无闪烁、无滚动条跳动可感知
   - [ ] 浏览器后退/锚点/菜单跳转不受影响
+
+### T23 · 首尾产品点击修复（Alan 2026-09-20 追加）
+- **来源**：Alan 反馈首屏和展示结束后不能用鼠标左键选择产品，要求修复。将这一明确反馈单独交付，不把 T08/T10 的后续动效打磨记为完成。
+- **范围**：`src/sections/HeroOverlay.tsx`、`src/sections/LineupOverlay.tsx`；`src/experience/Cast.tsx` 的 DOM 点击区域投影；新增 `src/experience/productTargets.ts` 及测试；`src/experience/choreography.ts` 仅点击/拖拽区分阈值；`src/styles/global.css` 点击区域样式与 `tokens.css` 对应令牌；`scripts/product-selection-check.mjs`。
+- **需求**：
+  1. 首屏可直接左键点击可见产品；拖拽释放不会误触点击，右键不改变选品。
+  2. 全家福每个产品可点击/回车选中，并通过现有导演入口回到该产品的第 2 幕。
+  3. DOM 点击区域跟随实际渲染姿态；画布继续不接收事件，非当前幕按钮不可交互。
+  4. 保持已有箭头、拖拽和键盘选品；不增加滚动监听。
+- **验收**：
+  - [ ] 首屏左键点选、结尾点选返回、回首屏再次点选均通过浏览器验证。
+  - [ ] 拖拽不误触，键盘可完成选择；减少动态效果下不新增平滑滚动。
+  - [ ] `npm run check` 与点击回归脚本通过。
+- **不做**：不把原图伪作整圈标签，不猜测尺寸，不实现 T08 惯性/灯环或 T10 错峰入场，不改变架构契约。

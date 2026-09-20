@@ -299,13 +299,48 @@ main {
 /* act 1 — hero */
 .hero__drag {
   position: absolute;
-  inset: var(--header-h) 0 9rem;
+  inset: 0;
   cursor: grab;
   touch-action: pan-y;
 }
 
 .hero__drag:active {
   cursor: grabbing;
+}
+
+/* Transparent DOM buttons follow the rendered product bounds; the canvas stays passive. */
+.product-target {
+  position: absolute;
+  left: var(--pick-x, 50%);
+  top: var(--pick-y, 50%);
+  width: var(--pick-w, 0);
+  height: var(--pick-h, 0);
+  padding: 0;
+  border-radius: var(--picker-radius);
+  pointer-events: none;
+  touch-action: pan-y;
+}
+
+.product-target:hover,
+.product-target:focus-visible {
+  outline: var(--picker-focus-width) solid var(--ink);
+  outline-offset: var(--picker-focus-width);
+}
+
+.overlay[data-interactive='true'] .product-target {
+  pointer-events: auto;
+}
+
+.product-target__name {
+  position: absolute;
+  top: calc(100% + var(--picker-label-offset));
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 100%;
+  color: var(--void);
+  font-size: var(--size-small);
+  font-weight: 700;
 }
 
 .overlay--hero[data-interactive='true'] .hero__drag,
