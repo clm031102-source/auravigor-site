@@ -1,3 +1,4 @@
+import { useSiteAudio } from '@/audio/useSiteAudio';
 import { site } from '@/content/site';
 import { scrollToTarget } from '@/director/smoothScroll';
 import { useAppStore } from '@/store/useAppStore';
@@ -8,10 +9,10 @@ const MENU: { label: string; target: number | string }[] = [
   { label: 'About', target: '#about' },
 ];
 
-/** Persistent chrome: progress bar, sound toggle (state only — audio is T12), wordmark, menu (full menu is T14). */
+/** Persistent chrome: progress bar, gesture-gated sound, wordmark, menu (full menu is T14). */
 export function Header() {
   const soundOn = useAppStore((s) => s.soundOn);
-  const toggleSound = useAppStore((s) => s.toggleSound);
+  const toggleSound = useSiteAudio();
   const menuOpen = useAppStore((s) => s.menuOpen);
   const toggleMenu = useAppStore((s) => s.toggleMenu);
 
@@ -19,7 +20,13 @@ export function Header() {
     <header className="header">
       <div className="header__progress" aria-hidden="true" />
 
-      <button type="button" className="header__btn" aria-pressed={soundOn} onClick={toggleSound}>
+      <button
+        type="button"
+        className="header__btn"
+        data-sound-toggle
+        aria-pressed={soundOn}
+        onClick={toggleSound}
+      >
         Sound {soundOn ? 'on' : 'off'}
       </button>
 

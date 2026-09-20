@@ -25,6 +25,7 @@ interface AppState {
   setAct: (act: ActId) => void;
   setFeatureIndex: (index: number) => void;
   toggleSound: () => void;
+  setSoundOn: (soundOn: boolean) => void;
   toggleMenu: () => void;
 }
 
@@ -49,5 +50,6 @@ export const useAppStore = create<AppState>((set) => ({
   setFeatureIndex: (featureIndex) =>
     set((s) => (s.featureIndex === featureIndex ? s : { featureIndex })),
   toggleSound: () => set((s) => ({ soundOn: !s.soundOn })),
+  setSoundOn: (soundOn) => set({ soundOn }),
   toggleMenu: () => set((s) => ({ menuOpen: !s.menuOpen })),
 }));
