@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useAppStore } from '@/store/useAppStore';
-import { createAudioController, type AudioController } from './audioController';
+import { createAudioController, type AudioController } from '@/audio/audioController';
 
 const preferenceKey = 'auravigor:sound';
 

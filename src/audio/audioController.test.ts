@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { createAudioController, type AudioSources } from './audioController';
+import { createAudioController, type AudioSources } from '@/audio/audioController';
 
 function setup(
   sources: AudioSources = { ambient: '/audio/ambient.wav', product: '/audio/product.wav' },
