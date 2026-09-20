@@ -36,6 +36,7 @@ export interface CastInput {
 }
 
 export const TUNING = {
+  picker: { slotTravel: 0.22, dragThreshold: 6 },
   ring: { spacing: 2.05, depth: 0.5, yaw: 0.28, tilt: -0.2, tiltPerSlot: -0.05, bob: 0.06 },
   reveal: { x: 1.25, y: 0, z: 1.2, rx: 0.08, ry: -0.45, rz: -0.26, s: 1.5, drift: 0.55 },
   features: { x: 1.35, y: -0.1, z: 1.6, rx: 0, rz: -0.1, s: 1.6 },

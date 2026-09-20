@@ -8,6 +8,7 @@ import { ringState, scrollState } from '@/director/scrollState';
 import { useAppStore } from '@/store/useAppStore';
 import { castPose } from './choreography';
 import { ProductModel } from './product/ProductModel';
+import { projectProductBounds } from '@/experience/productTargets';
 
 const RING_DAMPING = 7;
 const POSE_DAMPING = 14;
@@ -21,6 +22,7 @@ const HIDDEN = 0.02;
  */
 export function Cast() {
   const groups = useRef<(THREE.Group | null)[]>([]);
+  const bounds = useRef(new THREE.Box3());
 
   useFrame((state, delta) => {
     const dt = Math.min(delta, 0.1); // cap so a background tab coming back does not jump
@@ -67,6 +69,33 @@ export function Cast() {
       const scale = damp(group.scale.x, pose.s, POSE_DAMPING, dt);
       group.scale.setScalar(scale);
       group.visible = scale > HIDDEN;
+
+      // Keep DOM hit targets aligned with the actual damped pose, including during a turn.
+      const picker =
+        scrollState.act === 'hero' || scrollState.act === 'lineup' ? scrollState.act : null;
+      if (picker) {
+        const target = document.getElementById(`${picker}-product-${products[index].id}`);
+        if (target instanceof HTMLButtonElement) {
+          group.updateWorldMatrix(true, true);
+          bounds.current.setFromObject(group);
+          const rect =
+            group.visible && scrollState.exit === 0
+              ? projectProductBounds(
+                  bounds.current,
+                  state.camera,
+                  state.size.width,
+                  state.size.height,
+                )
+              : null;
+          target.hidden = !rect;
+          if (rect) {
+            target.style.setProperty('--pick-x', `${rect.x}px`);
+            target.style.setProperty('--pick-y', `${rect.y}px`);
+            target.style.setProperty('--pick-w', `${rect.width}px`);
+            target.style.setProperty('--pick-h', `${rect.height}px`);
+          }
+        }
+      }
     });
   });
 
