@@ -25,9 +25,27 @@ export function Experience() {
 
         {/* Procedural studio reflections: no HDRI download, works offline and in CI. */}
         <Environment resolution={256} frames={1}>
-          <Lightformer form="rect" intensity={3} position={[0, 5, 2]} scale={[10, 2, 1]} rotation-x={Math.PI / 2} />
-          <Lightformer form="rect" intensity={2.2} position={[-5, 1, 2]} scale={[2, 8, 1]} rotation-y={Math.PI / 2} />
-          <Lightformer form="rect" intensity={2.2} position={[5, 1, 2]} scale={[2, 8, 1]} rotation-y={-Math.PI / 2} />
+          <Lightformer
+            form="rect"
+            intensity={3}
+            position={[0, 5, 2]}
+            scale={[10, 2, 1]}
+            rotation-x={Math.PI / 2}
+          />
+          <Lightformer
+            form="rect"
+            intensity={2.2}
+            position={[-5, 1, 2]}
+            scale={[2, 8, 1]}
+            rotation-y={Math.PI / 2}
+          />
+          <Lightformer
+            form="rect"
+            intensity={2.2}
+            position={[5, 1, 2]}
+            scale={[2, 8, 1]}
+            rotation-y={-Math.PI / 2}
+          />
           <Lightformer form="ring" intensity={1.5} position={[0, 0, 8]} scale={4} />
         </Environment>
 

@@ -47,6 +47,9 @@ npm run shots      # optional: headless screenshots of every act into ./.shots (
     pinned to `~19.2` because `@react-three/fiber@9` declares `react <19.3` — do not bump them
     unless fiber's peer range allows it.
 
+11. **Communication language:** PR descriptions, reports, and all instructions for Alan must be
+    written in Chinese. Code comments remain in English.
+
 ## Code conventions
 
 - TypeScript strict, no `any`, no non-null `!` on things that can really be null.

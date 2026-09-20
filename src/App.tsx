@@ -12,7 +12,9 @@ import { PlaceholderBadge } from '@/ui/PlaceholderBadge';
 import { SloganLayer } from '@/ui/SloganLayer';
 
 // three.js + R3F are ~90% of the bundle: load them after the shell has painted.
-const Experience = lazy(() => import('@/experience/Experience').then((m) => ({ default: m.Experience })));
+const Experience = lazy(() =>
+  import('@/experience/Experience').then((m) => ({ default: m.Experience })),
+);
 
 /**
  * Layer map (back → front). Full explanation in docs/ARCHITECTURE.md.

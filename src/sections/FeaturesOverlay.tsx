@@ -14,9 +14,14 @@ export function FeaturesOverlay() {
     <div className="overlay overlay--features">
       <ol className="features">
         {product.features.map((feature, index) => (
-          <li key={feature.id} className="copy features__item" data-current={index === featureIndex}>
+          <li
+            key={feature.id}
+            className="copy features__item"
+            data-current={index === featureIndex}
+          >
             <p className="copy__eyebrow">
-              {String(index + 1).padStart(2, '0')} / {String(product.features.length).padStart(2, '0')}
+              {String(index + 1).padStart(2, '0')} /{' '}
+              {String(product.features.length).padStart(2, '0')}
             </p>
             <h2 className="copy__title copy__title--sm">{feature.title}</h2>
             <p className="copy__body">{feature.body}</p>
@@ -26,7 +31,12 @@ export function FeaturesOverlay() {
 
       <div className="dots" aria-hidden="true">
         {product.features.map((feature, index) => (
-          <span key={feature.id} className="dots__dot" data-current={index === featureIndex} data-icon={feature.icon} />
+          <span
+            key={feature.id}
+            className="dots__dot"
+            data-current={index === featureIndex}
+            data-icon={feature.icon}
+          />
         ))}
       </div>
     </div>

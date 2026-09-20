@@ -23,11 +23,22 @@ export function Header() {
         Sound {soundOn ? 'on' : 'off'}
       </button>
 
-      <button type="button" className="header__logo" onClick={() => scrollToTarget(0)} aria-label={`${site.brand} — back to top`}>
+      <button
+        type="button"
+        className="header__logo"
+        onClick={() => scrollToTarget(0)}
+        aria-label={`${site.brand} — back to top`}
+      >
         {site.brand}
       </button>
 
-      <button type="button" className="header__btn" aria-expanded={menuOpen} aria-controls="menu" onClick={toggleMenu}>
+      <button
+        type="button"
+        className="header__btn"
+        aria-expanded={menuOpen}
+        aria-controls="menu"
+        onClick={toggleMenu}
+      >
         Menu
       </button>
 

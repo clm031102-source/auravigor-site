@@ -93,7 +93,8 @@ export function castPose(input: CastInput): Pose {
   const toSlogan = easeInOut(smoothstep(0, 0.4, local.slogan));
   const toLineup = easeInOut(smoothstep(0, 0.55, local.lineup));
 
-  const slot = (index - (count - 1) / 2) * T.lineup.spacing * lerp(T.portrait.lineupSpacing, 1, wide);
+  const slot =
+    (index - (count - 1) / 2) * T.lineup.spacing * lerp(T.portrait.lineupSpacing, 1, wide);
   const isActive = index === activeIndex;
 
   let pose = ringPose(index, count, ring);
